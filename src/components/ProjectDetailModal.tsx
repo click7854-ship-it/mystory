@@ -85,6 +85,20 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 alt={project.imageAlt}
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallbackMap: Record<string, string> = {
+                    'yongdu-the-live': '/images/project_realestate_brochure.jpg',
+                    'beolgyo-private-rental': '/images/project_branding_identity.jpg',
+                    'real-estate-lab': '/images/project_branding_identity.jpg',
+                    'ai-character-deokdaeri': '/images/project_ai_character_deok.jpg',
+                    'monster-convenience': '/images/project_monster_convenience.jpg',
+                  };
+                  const fallback = fallbackMap[project.id];
+                  if (fallback && !target.src.endsWith(fallback)) {
+                    target.src = fallback;
+                  }
+                }}
               />
             </div>
             {project.isConceptSample && (

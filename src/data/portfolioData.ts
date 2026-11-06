@@ -1,5 +1,11 @@
 import { ProjectItem, ExpertiseItem, LabExperiment, JournalArticle } from '../types';
 
+// Asset imports for production bundling by Vite
+import brochureImg from '../assets/images/project_realestate_brochure_1793930429229.jpg';
+import brandingImg from '../assets/images/project_branding_identity_1793930430659.jpg';
+import characterImg from '../assets/images/project_ai_character_deok_1793930430230.jpg';
+import monsterImg from '../assets/images/project_monster_convenience_1793930430795.jpg';
+
 export const SITE_CONFIG = {
   brandName: 'PARK GYUDUK',
   subtitle: 'Creative Business & AI',
@@ -21,7 +27,7 @@ export const PROJECTS: ProjectItem[] = [
     year: '2024 - 2025',
     clientOrContext: '수도권 주상복합 분양 마케팅',
     isConceptSample: true,
-    image: '/src/assets/images/project_realestate_brochure_1793930429229.jpg',
+    image: brochureImg || '/images/project_realestate_brochure.jpg',
     imageAlt: '용두 더리브 분양 홍보 브로슈어 및 전단 디자인 샘플',
     keywords: ['분양광고', '전단 디자인', '광고 카피', '비주얼 콘셉트'],
     summary: '광고 대상의 입지 조건과 핵심 셀링 포인트를 분석하여, 실수요자의 눈길을 사로잡는 분양홍보 전단의 콘셉트와 명확한 시각적 카피를 기획한 작업입니다.',
@@ -50,7 +56,7 @@ export const PROJECTS: ProjectItem[] = [
     year: '2024',
     clientOrContext: '지방 중소도시 신규 공급 프로젝트',
     isConceptSample: true,
-    image: '/src/assets/images/project_branding_identity_1793930430659.jpg',
+    image: brandingImg || '/images/project_branding_identity.jpg',
     imageAlt: '벌교 민간임대아파트 분양 홍보 전략 제안서 및 브랜딩 에셋',
     keywords: ['홍보기획', '사업 제안', '광고계획', '시각자료'],
     summary: '지역 거주민의 주거 성향과 사업 목적을 면밀히 검토해, 분양홍보 방향, 오프라인·온라인 광고 매체 믹스, 시각 자료 구성을 일관되게 설계한 전략 프로젝트입니다.',
@@ -79,7 +85,7 @@ export const PROJECTS: ProjectItem[] = [
     year: '2025',
     clientOrContext: '자체 디지털 콘텐츠 미디어 기획',
     isConceptSample: true,
-    image: '/src/assets/images/project_branding_identity_1793930430659.jpg',
+    image: brandingImg || '/images/project_branding_identity.jpg',
     imageAlt: '부동산 랩 브랜드 아이덴티티 및 모바일 피드 템플릿',
     keywords: ['브랜드 네이밍', '채널 기획', 'SNS 콘텐츠', '디지털 마케팅'],
     summary: '인스타그램과 유튜브를 기반으로 딱딱한 부동산 정책과 청약 정보를 직관적인 그래픽과 카드뉴스로 전달하기 위해 고안한 디지털 콘텐츠 미디어 브랜드 기획입니다.',
@@ -108,7 +114,7 @@ export const PROJECTS: ProjectItem[] = [
     year: '2025 - 2026',
     clientOrContext: 'AI 크리에이티브 랩 연구 프로젝트',
     isConceptSample: true,
-    image: '/src/assets/images/project_ai_character_deok_1793930430230.jpg',
+    image: characterImg || '/images/project_ai_character_deok.jpg',
     imageAlt: '직장인 AI 캐릭터 덕대리 3D 스타일 렌더 및 숏폼 썸네일',
     keywords: ['AI 캐릭터', '쇼츠 영상', '스토리텔링', '영상 프롬프트'],
     summary: '직장 생활의 공감 가는 순간들을 유쾌하게 풀어내는 3D 스타일 캐릭터 덕대리를 개발하고, 일관된 캐릭터 룩을 유지하며 숏폼 영상으로 양산하는 AI 파이프라인을 실험한 프로젝트입니다.',
@@ -138,7 +144,7 @@ export const PROJECTS: ProjectItem[] = [
     year: '2025',
     clientOrContext: '신규 F&B 및 리테일 비즈니스 콘셉트 연구',
     isConceptSample: true,
-    image: '/src/assets/images/project_monster_convenience_1793930430795.jpg',
+    image: monsterImg || '/images/project_monster_convenience.jpg',
     imageAlt: '몬스터 편의점 패키징 및 브랜드 그래픽 콘셉트 목업',
     keywords: ['브랜드 아이디어', '로고 디자인', '콘셉트 패키징'],
     summary: '개성 넘치는 몬스터 캐릭터와 볼드한 네온 오렌지 컬러를 결합하여, 기존의 정형화된 편의점 공간을 트렌디한 문화 공간으로 재해석한 신규 리테일 브랜드 콘셉트 프로젝트입니다.',

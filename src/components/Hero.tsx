@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowDown, ArrowUpRight, Sparkles, Layers, Briefcase, Zap } from 'lucide-react';
 import { SITE_CONFIG } from '../data/portfolioData';
+import heroDirectorImg from '../assets/images/hero_director_portrait_1793930427761.jpg';
 
 interface HeroProps {
   onExploreWork: () => void;
@@ -13,6 +14,8 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreAbout,
   onExploreAiLab,
 }) => {
+  const [imgError, setImgError] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(heroDirectorImg || '/images/hero_director_portrait.jpg');
   return (
     <section id="home" className="pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#111111]/8">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -87,27 +90,28 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="relative group overflow-hidden rounded-xl border border-[#111111]/10 bg-white shadow-xs">
               <div className="aspect-[3/4] w-full overflow-hidden bg-[#ECECE9]">
-                <img
-                  src="/src/assets/images/hero_director_portrait_1793930427761.jpg"
-                  alt="박규덕 크리에이티브 비즈니스 & AI 디렉터 프로필"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-                  loading="eager"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    // Fallback to styled typography container if image fails
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                    if (target.parentElement) {
-                      target.parentElement.innerHTML = `
-                        <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-[#181818] text-[#F7F7F5]">
-                          <span class="text-xs tracking-widest text-[#F07842] uppercase mb-2">Director Profile</span>
-                          <span class="text-2xl font-bold mb-1">PARK GYUDUK</span>
-                          <span class="text-xs text-[#A3A3A3]">Creative Business & AI</span>
-                        </div>
-                      `;
-                    }
-                  }}
-                />
+                {!imgError ? (
+                  <img
+                    src={imgSrc}
+                    alt="박규덕 크리에이티브 비즈니스 & AI 디렉터 프로필"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                    loading="eager"
+                    referrerPolicy="no-referrer"
+                    onError={() => {
+                      if (imgSrc !== '/images/hero_director_portrait.jpg') {
+                        setImgSrc('/images/hero_director_portrait.jpg');
+                      } else {
+                        setImgError(true);
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-[#181818] text-[#F7F7F5]">
+                    <span className="text-xs tracking-widest text-[#F07842] uppercase mb-2">Director Profile</span>
+                    <span className="text-2xl font-bold mb-1 font-display">PARK GYUDUK</span>
+                    <span className="text-xs text-[#A3A3A3]">Creative Business & AI</span>
+                  </div>
+                )}
               </div>
 
               {/* Minimalist Editorial Caption */}
